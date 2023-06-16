@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "qr-trial",
+    "name": "QRT",
     "slug": "qr-trial",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,16 +15,37 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera",
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to access your microphone"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+	  "package": "tech.ankan.qrt"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "camera-permission": "Allow Scanner to access the camera"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3387a94b-7b69-4e1c-8dfe-94a3dc6215b0"
+      }
     }
   }
 }
